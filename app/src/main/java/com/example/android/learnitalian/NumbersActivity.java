@@ -2,8 +2,7 @@ package com.example.android.learnitalian;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -12,27 +11,26 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
-        ArrayList<String> myArray = new ArrayList<>();
+        ArrayList<Word> myArray = new ArrayList<>();
 
-        myArray.add("zero");
-        myArray.add("one");
-        myArray.add("two");
-        myArray.add("three");
-        myArray.add("four");
-        myArray.add("five");
-        myArray.add("six");
-        myArray.add("seven");
-        myArray.add("eight");
-        myArray.add("ten");
+        myArray.add(new Word("zero", "zero"));
+        myArray.add(new Word("uno", "one"));
+        myArray.add(new Word("due", "two"));
+        myArray.add(new Word("tre", "three"));
+        myArray.add(new Word("quattro", "four"));
+        myArray.add(new Word("cinque", "five"));
+        myArray.add(new Word("sei", "six"));
+        myArray.add(new Word("sette", "seven"));
+        myArray.add(new Word("otto", "eight"));
+        myArray.add(new Word("nove", "nine"));
+        myArray.add(new Word("dieci", "ten"));
 
-        LinearLayout rootView = findViewById(R.id.linear_root);
 
-        for(int i=0; i < myArray.size();i++) {
-            TextView txtNumber = new TextView(this);
-            txtNumber.setText(myArray.get(i));
-            rootView.addView(txtNumber);
-          }
+        WordAdapter itemsAdapter = new WordAdapter(this, myArray);
+        ListView listView = findViewById(R.id.list);
+        listView.setAdapter(itemsAdapter);
+
     }
 }

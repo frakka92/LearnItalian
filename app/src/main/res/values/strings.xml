@@ -13,4 +13,7 @@
 
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">Family Members</string>
+
+    <string name="default_word">Default</string>
+    <string name="ita_word">Italian</string>
 </resources>
