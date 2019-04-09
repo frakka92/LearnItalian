@@ -1,22 +1,30 @@
 package com.example.android.learnitalian;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 
 public class WordAdapter extends ArrayAdapter<Word> {
+
+    public static class ViewHolder {
+        public TextView defaultViewHolder, italianViewHolder;
+        public ImageView iconViewHolder;
+    }
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
      * The context is used to inflate the layout file, and the list is the data we want
      * to populate into the lists.
      *
-     * @param context        The current context. Used to inflate the layout file.
+     * @param context       The current context. Used to inflate the layout file.
      * @param wordArrayList A List of Word objects to display in a list
      */
     public WordAdapter(Context context, ArrayList<Word> wordArrayList) {
@@ -26,10 +34,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
     /**
      * Provides a view for an AdapterView (ListView, GridView, etc.)
      *
-     * @param position The position in the list of data that should be displayed in the
-     *                 list item view.
+     * @param position    The position in the list of data that should be displayed in the
+     *                    list item view.
      * @param convertView The recycled view to populate.
-     * @param parent The parent ViewGroup that is used for inflation.
+     * @param parent      The parent ViewGroup that is used for inflation.
      * @return The View for the position in the AdapterView.
      */
     @Override
@@ -37,28 +45,32 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item_layout, parent, false);
+
+            ViewHolder holder = new ViewHolder();
+            holder.defaultViewHolder = listItemView.findViewById(R.id.item_default);
+            holder.italianViewHolder = listItemView.findViewById(R.id.item_italian);
+            holder.iconViewHolder = listItemView.findViewById(R.id.item_icon);
+            listItemView.setTag(holder);
         }
 
         // Get the {@link Word} object located at this position in the list
         Word currentWord = getItem(position);
+        ViewHolder holder = (ViewHolder) listItemView.getTag();
 
-        // Find the TextView in the list_item_layout.xml layout with the ID item_italian
-        TextView italianTextView = listItemView.findViewById(R.id.item_italian);
-        // Get the Italian translation from the current Word object and
-        // set this text on the number TextView
-        italianTextView.setText(currentWord.getmItalianWord());
+        holder.defaultViewHolder.setText(currentWord.getmDefaultTranslation());
+        holder.italianViewHolder.setText(currentWord.getmItalianTranslation());
+        if (currentWord.hasImage()) {
+            holder.iconViewHolder.setVisibility(View.VISIBLE);
+            holder.iconViewHolder.setImageResource(currentWord.getmIcon());
+            Log.v("PhrasesActivity", "Current word icon " + Integer.toString(currentWord.getmIcon()));
+        } else {
+            holder.iconViewHolder.setVisibility(View.GONE);
+            Log.v("PhrasesActivity", "Current word icon " + Integer.toString(currentWord.getmIcon()));
+        }
 
-        // Find the TextView in the list_item_layout.xml layout with the ID item_default
-        TextView defaultTextView = listItemView.findViewById(R.id.item_default);
-        // Get the default translation from the current Word object and
-        // set this text on the name TextView
-        defaultTextView.setText(currentWord.getmDefaultTranslation());
-
-        // Return the whole list item layout (containing 2 TextViews)
-        // so that it can be shown in the ListView
         return listItemView;
     }
 }

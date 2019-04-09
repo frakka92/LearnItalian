@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/list_item_height"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_italian"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/ita_word" />
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"
+        android:background="@color/background"
+        android:src="@drawable/ic_italy" />
 
-    <TextView
-        android:id="@+id/item_default"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/ita_word" />
+    <LinearLayout
+        android:id="@+id/translation"
+        android:layout_width="275dp"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_alignBottom="@id/item_icon"
+        android:layout_toEndOf="@id/item_icon"
+        android:layout_toRightOf="@id/item_icon"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/item_italian"
+            style="@style/text_ita"
+            android:text="@string/ita_word" />
+
+        <TextView
+            android:id="@+id/item_default"
+            style="@style/text_default"
+            android:text="@string/default_word" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_toEndOf="@id/translation"
+        android:layout_toRightOf="@id/translation"
+        android:src="@drawable/ic_play_arrow" />
+</RelativeLayout>

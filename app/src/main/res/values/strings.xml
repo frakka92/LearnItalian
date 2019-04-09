@@ -1,19 +1,57 @@
 <resources>
-    <!-- Title for the application. [CHAR LIMIT=12] -->
     <string name="app_name">LearnItalian</string>
 
-    <!-- Category name for phrases [CHAR LIMIT=20] -->
     <string name="category_phrases">Phrases</string>
-
-    <!-- Category name for the vocabulary words for colors [CHAR LIMIT=20] -->
     <string name="category_colors">Colors</string>
-
-    <!-- Category name for the vocabulary words for numbers [CHAR LIMIT=20] -->
     <string name="category_numbers">Numbers</string>
-
-    <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">Family Members</string>
+
+    <!--Italian words -->
 
     <string name="default_word">Default</string>
     <string name="ita_word">Italian</string>
+    <string name="red">rosso</string>
+    <string name="blue">blu</string>
+    <string name="green">verde</string>
+    <string name="yellow">giallo</string>
+    <string name="orange">arancione</string>
+    <string name="brown">marrone</string>
+    <string name="gray">grigio</string>
+    <string name="purple">viola</string>
+    <string name="pink">rosa</string>
+    <string name="white">bianco</string>
+    <string name="black">nero</string>
+    <string name="mother_mom">madre, mamma</string>
+    <string name="father_dad">padre, papà</string>
+    <string name="sister">sorella</string>
+    <string name="brother">fratello</string>
+    <string name="grandmother">nonna</string>
+    <string name="grandfather">nonno</string>
+    <string name="cousin">cugino/a</string>
+    <string name="son">figlio</string>
+    <string name="daughter">figlia</string>
+    <string name="uncle">zio</string>
+    <string name="aunt">zia</string>
+    <string name="zero">zero</string>
+    <string name="one">uno</string>
+    <string name="two">due</string>
+    <string name="three">tre</string>
+    <string name="four">quattro</string>
+    <string name="five">cinque</string>
+    <string name="six">sei</string>
+    <string name="seven">sette</string>
+    <string name="eight">otto</string>
+    <string name="nine">nove</string>
+    <string name="ten">dieci</string>
+    <string name="where_going">Dove stai andando?</string>
+    <string name="what_name">Qual è il tuo nome?</string>
+    <string name="my_name_is">Il mio nome è&#8230;</string>
+    <string name="how_feel">Come ti senti?</string>
+    <string name="feel_good">Mi sento bene</string>
+    <string name="lets_go">Andiamo</string>
+    <string name="come_here">Vieni quì</string>
+    <string name="what_time">Che ore sono?</string>
+    <string name="where_form">Di dove sei?</string>
+    <string name="hungry">Hai fame?</string>
+    <string name="thirsty">Hai sete?</string>
 </resources>
