@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -7,7 +7,7 @@
     </style>
 
     <!-- Style for a category of vocabulary words -->
-    <style name="CategoryStyle">
+    <style name="CategoryStyle" tools:keep="@style/CategoryStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/list_item_height</item>
         <item name="android:gravity">center</item>
